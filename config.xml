@@ -4,7 +4,7 @@
   <description>
         Control Arduino LED from Mobile Device
     </description>
-  <author email="equan.p@gmail.com" href="https://github.com/jsiot">
+  <author email="jsdaniot@gmail.com" href="https://github.com/jsiot">
       Sabdo Palon
     </author>
   <content src="index.html"/>
