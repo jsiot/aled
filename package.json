@@ -1,6 +1,6 @@
 {
   "name": "aled",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Mobile client for control Arduino LED",
   "dependencies": {
     "gulp": "^3.5.6",
