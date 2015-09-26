@@ -34,6 +34,16 @@
   font-size: 128px; 
 }
 
+.setform input{
+  margin: 5px 0px;
+  min-height: 32px;
+  padding: 0px 3px;
+}
+
+.popup {
+  width: 50% !important;
+}
+
 .ledColorOff {
   color: rgba(0,0,0,0.2) !important;
 }

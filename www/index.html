@@ -25,6 +25,7 @@
   </head>
   <body ng-app="ArduinoLed">
     <ion-pane>
+      
       <ion-content>
           <section class="mdl-grid mdl-components__page">
           <div class="mdl-cell mdl-cell--12-col demo">
@@ -43,6 +44,9 @@
           </div>
           </section>
       </ion-content>
+      <div class="bar bar-footer" ng-controller="SettingController">
+        <button id="settingBtn" class="button button-clear pull-right" ng-click="showPopup()"><i class="material-icons">&#xE8B8;</i></button>
+      </div>
     </ion-pane>
   </body>
 </html>
