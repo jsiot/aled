@@ -9,10 +9,15 @@ angular.module('ArduinoLed', ['ionic'])
       StatusBar.styleDefault();
     }
   });
+  window.localStorage['ip'] = '192.168.0.100';
+  window.localStorage['port'] = '3000';
 
-  var iosocket = io.connect('http://192.168.0.100:3000');
+  var port = window.localStorage['port'] || '3000';
+  var ip = window.localStorage['ip'] || '192.168.0.100';
 
-      $('#led').on('change', function(){
+  var iosocket = io.connect('http://'+ip+':'+port);
+
+  $('#led').on('change', function(){
         if ($(this).is(":checked")) {
            console.log('ON');
            $('#statusArea').removeClass('statusAreaOff').addClass('statusAreaOn');
@@ -24,5 +29,5 @@ angular.module('ArduinoLed', ['ionic'])
            $('#lampStatus').removeClass('ledColorOn').addClass('ledColorOff');
            iosocket.emit('button', {lampstatus: "0"});
         }
-    })
+  })
 })
