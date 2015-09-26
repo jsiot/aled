@@ -1,7 +1,7 @@
 {
-  "name": "arduino-led-ionic",
+  "name": "aled",
   "version": "1.0.0",
-  "description": "arduino-led-ionic: An Ionic project",
+  "description": "Mobile client for control Arduino LED",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^1.3.3",
