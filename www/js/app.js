@@ -1,6 +1,20 @@
-angular.module('ArduinoLed', ['ionic'])
 
-.run(function($ionicPlatform) {
+angular.module('ionic.utils', [])
+
+.factory('$localstorage', ['$window', function($window){
+    return {
+      set: function(key, value) {
+          $window.localStorage[key] = value;
+      },
+      get: function(key){
+          return $window.localStorage[key] || '3000';
+      }
+    }
+}]);
+
+angular.module('ArduinoLed', ['ionic', 'ionic.utils'])
+
+.run(function($ionicPlatform, $localstorage) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -9,12 +23,12 @@ angular.module('ArduinoLed', ['ionic'])
       StatusBar.styleDefault();
     }
   });
-  window.localStorage['ip'] = '192.168.0.100';
-  window.localStorage['port'] = '3000';
 
-  var port = window.localStorage['port'] || '3000';
-  var ip = window.localStorage['ip'] || '192.168.0.100';
+  $localstorage.set('ip', '192.168.0.100');
+  $localstorage.set('port','3000');
 
+  var port = $localstorage.get('port');
+  var ip = $localstorage.get('ip');
   var iosocket = io.connect('http://'+ip+':'+port);
 
   $('#led').on('change', function(){
@@ -30,4 +44,5 @@ angular.module('ArduinoLed', ['ionic'])
            iosocket.emit('button', {lampstatus: "0"});
         }
   })
-})
+});
+
